@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="row">
+                <img class="img-responsive" src="{{ book.cover }}" alt="{{ book.title }}"/>
+            </div>
+        </div>
+        <div class="col-md-6">
+                <h1>{{ book.title }}</h1>
+                <p class="text-justify">{{ book.description }}</p>
+                <p>ISBN: {{ book.isbn }}</p>
+                <p>Released: {{ book.createdAt | date}}</p>
+        </div>
+        <div class="col-md-3">
+            <p>Units: {{ book.units }}</p>
+        </div>
+    </div>
+</div>
