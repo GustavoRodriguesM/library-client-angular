@@ -14,7 +14,9 @@ export class BookListComponent implements OnInit {
   constructor(private bookService: BookService) { }
 
   ngOnInit() {
-    this.bookService.findAll().subscribe( data => {console.log(data); this.books = data._embedded.books;});
+    this.bookService.findAll().subscribe( data => { 
+      this.books = data._embedded.books; 
+    });
   }
 
 }
