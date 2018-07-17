@@ -1,8 +1,10 @@
 <ol class="list-unstyled">
   <li class="text-center row" *ngFor="let cols of rows">
    <div *ngFor="let book of cols" class="col-3">
+    <a routerLink="/books/{{ book.id }}">
       <h6>{{ book.title }}</h6>
       <img src="{{ book.cover }}" class="book-cover img-responsive"/>
+    </a>
    </div>
   </li>
 </ol>
