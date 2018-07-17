@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { BookShowComponent } from './book-show/book-show.component';
 import { NgModule } from "@angular/core";
@@ -15,7 +16,8 @@ import { BooksComponent } from './book-list/books/books.component';
         BookListComponent ],
     imports: [ 
         HttpClientModule,
-        CommonModule
+        RouterModule,
+        CommonModule,
     ]
 })
 export class BookModule {
