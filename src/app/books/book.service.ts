@@ -20,4 +20,8 @@ export class BookService {
     findAll(): Observable<any> {
         return this.http.get<any>(API + "/books");
     }
+
+    findByTitleContaining(value: string): Observable<any>{
+        return this.http.get<any>(API + '/books/search/findAllByTitleContaining?title=' + value);
+    }
 }
