@@ -1,0 +1,15 @@
+<ol class="list-unstyled">
+  <article class="col-8 offset-2 gray-overlay-10">
+    <li class="row mt-5" *ngFor="let book of books">
+      <a routerLink="/books/{{ book.id }}">
+        <div class="col-2">
+          <img src="{{ book.cover }}" class="book-cover"/>
+        </div>
+      </a>
+      <div class="col-10">
+        <h6>{{ book.title }}</h6>
+        <p>{{ book.description | slice:0:500 }} <a routerLink="/books/{{ book.id }}">See more</a></p>
+      </div>
+    </li>
+  </article>
+</ol>
