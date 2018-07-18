@@ -1,3 +1,7 @@
+<div class="text-center" *ngIf="!books.length">
+  <p>Sorry, there's no books avaiable with this title</p>
+</div>
+
 <ol class="list-unstyled">
   <article class="col-8 offset-2 gray-overlay-10">
     <li class="row mt-5" *ngFor="let book of books">
@@ -8,7 +12,7 @@
       </a>
       <div class="col-10">
         <h6>{{ book.title }}</h6>
-        <p>{{ book.description | slice:0:500 }} <a routerLink="/books/{{ book.id }}">See more</a></p>
+        <p class="text-justify">{{ book.description | slice:0:500 }} <a routerLink="/books/{{ book.id }}">See more</a></p>
       </div>
     </li>
   </article>

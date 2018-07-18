@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { BookService } from './../book.service';
 import { Book } from '../book';
 
 @Component({
@@ -15,21 +14,11 @@ export class BookSearchComponent implements OnInit {
   books: Book[] = [];
 
   constructor(
-    private activatedRoute: ActivatedRoute,
-    private bookService: BookService
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.value = this.activatedRoute.snapshot.params.value;
-    this.findByTitleContaining(this.value);
-  }
-
-  findByTitleContaining( value : string ) {
-    this.bookService
-      .findByTitleContaining(this.value)
-      .subscribe( data => {
-        this.books = data._embedded.books;
-      });
+    this.books = this.activatedRoute.snapshot.data.books._embedded.books;
   }
 
 }

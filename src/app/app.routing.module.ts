@@ -6,12 +6,31 @@ import { BookShowComponent } from './books/book-show/book-show.component';
 import { BookSearchComponent } from './books/book-search/book-search.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 
+import { BookSearchResolver } from './books/book-search/book-search.resolver';
+
 const routes: Routes = [
-  { path: '', component: BookListComponent },
-  { path: 'books', component: BookListComponent },
-  { path: 'books/:id', component: BookShowComponent },
-  { path: 'books/search/:value', component: BookSearchComponent },
-  { path: '**', component: NotFoundComponent }
+  { 
+    path: '', 
+    component: BookListComponent
+  },
+  { 
+    path: 'books', 
+    component: BookListComponent 
+  },
+  { 
+    path: 'books/:id', 
+    component: BookShowComponent 
+  },
+  { 
+    path: 'books/search/:value', 
+    component: BookSearchComponent, 
+    resolve: {
+      books: BookSearchResolver
+    } 
+  },
+  { 
+    path: '**', 
+    component: NotFoundComponent }
 ];
 
 @NgModule({

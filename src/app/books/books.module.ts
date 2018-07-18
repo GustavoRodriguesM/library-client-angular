@@ -13,7 +13,7 @@ import { BookSearchComponent } from './book-search/book-search.component';
         BookShowComponent, 
         BookListComponent, 
         BooksComponent, 
-        BookSearchComponent 
+        BookSearchComponent
     ],
     exports: [ 
         BookShowComponent, 
