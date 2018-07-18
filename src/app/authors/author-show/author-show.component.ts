@@ -11,7 +11,6 @@ import { Component, OnInit, Input } from '@angular/core';
 export class AuthorShowComponent implements OnInit {
 
   author: Author = new Author();
-  @Input() id = "";
 
   constructor(
     private authorService: AuthorService,
@@ -19,11 +18,10 @@ export class AuthorShowComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if(this.activatedRoute.snapshot.params.idAuthor)
-      this.id = this.activatedRoute.snapshot.params.idAuthor;
+    const id = this.activatedRoute.snapshot.params.idAuthor;
 
     this.authorService
-      .findById(this.id)
+      .findById(id)
       .subscribe( data => this.author = data);
   }
 
