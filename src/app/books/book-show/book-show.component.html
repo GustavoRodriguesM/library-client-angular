@@ -17,7 +17,16 @@
     </div>
     <div *ngFor='let author of book.authors'>   
     
-        <lib-author-show id="{{ author.id }}"></lib-author-show>
+        <div class="row mt-5">
+            <div class="col-md-4 offset-md-3">
+              <p class="text-justify">{{ author.description }}</p>
+            </div>
+            <div class="col-md-4">
+              <h5>{{ author.name }}</h5>
+              <h6>Was born at {{ author.birthday | date }}</h6>
+            </div>
+          </div>
+          
 
     </div>
 </div>

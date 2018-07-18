@@ -16,7 +16,7 @@ export class BookShowResolver implements Resolve<Observable<Book[]>> {
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
         const id = route.params.id;
-        return this.service.findById(id);
+        return this.service.findByIdWithAuthors(id);
     }
 
 }
