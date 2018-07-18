@@ -5,6 +5,7 @@ import { BookListComponent } from './books/book-list/book-list.component';
 import { BookShowComponent } from './books/book-show/book-show.component';
 import { BookSearchComponent } from './books/book-search/book-search.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
+import { AuthorShowComponent } from './authors/author-show/author-show.component';
 
 import { BookSearchResolver } from './books/book-search/book-search.resolver';
 
@@ -27,6 +28,10 @@ const routes: Routes = [
     resolve: {
       books: BookSearchResolver
     } 
+  },
+  {
+    path: 'authors/:idAuthor',
+    component: AuthorShowComponent
   },
   { 
     path: '**', 

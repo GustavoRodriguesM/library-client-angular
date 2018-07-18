@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app.routing.module';
 import { UtilsModule } from './utils/utils.module';
 import { BookModule } from './books/books.module';
 import { ErrorsModule } from './errors/errors.module';
+import { AuthorModule } from './authors/author.module';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { ErrorsModule } from './errors/errors.module';
     BrowserModule,
     ErrorsModule,
     BookModule,
+    AuthorModule,
     AppRoutingModule
   ],
   providers: [],
