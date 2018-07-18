@@ -7,6 +7,7 @@ import { BookShowComponent } from './book-show/book-show.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { BooksComponent } from './book-list/books/books.component';
 import { BookSearchComponent } from './book-search/book-search.component';
+import { AuthorModule } from "../authors/author.module";
 
 @NgModule({
     declarations: [ 
@@ -22,7 +23,8 @@ import { BookSearchComponent } from './book-search/book-search.component';
     imports: [ 
         HttpClientModule,
         RouterModule,
-        CommonModule,
+        AuthorModule,
+        CommonModule
     ]
 })
 export class BookModule {

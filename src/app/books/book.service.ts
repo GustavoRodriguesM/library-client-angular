@@ -14,14 +14,18 @@ export class BookService {
     }
 
     findById(id : string): Observable<Book> {
-        return this.http.get<Book>(API + "/books/" + id);
+        return this.http.get<Book>(API + '/books/' + id);
     }
 
     findAll(): Observable<any> {
-        return this.http.get<any>(API + "/books");
+        return this.http.get<any>(API + '/books');
     }
 
     findByTitleContaining(value: string): Observable<any>{
         return this.http.get<any>(API + '/books/search/findAllByTitleContaining?title=' + value);
+    }
+
+    findAuthorsByBookId(id : string) {
+        return this.http.get<any>(API + '/books/' + id + '/authors');
     }
 }

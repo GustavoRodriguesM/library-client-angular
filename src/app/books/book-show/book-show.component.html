@@ -15,4 +15,9 @@
             <p>Units: {{ book.units }}</p>
         </div>
     </div>
+    <div *ngFor='let author of book.authors'>   
+    
+        <lib-author-show id="{{ author.id }}"></lib-author-show>
+
+    </div>
 </div>

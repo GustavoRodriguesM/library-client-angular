@@ -8,6 +8,7 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { AuthorShowComponent } from './authors/author-show/author-show.component';
 
 import { BookSearchResolver } from './books/book-search/book-search.resolver';
+import { BookShowResolver } from './books/book-show/book-show.resolver';
 
 const routes: Routes = [
   { 
@@ -20,7 +21,10 @@ const routes: Routes = [
   },
   { 
     path: 'books/:id', 
-    component: BookShowComponent 
+    component: BookShowComponent,
+    resolve: {
+      book: BookShowResolver
+    }
   },
   { 
     path: 'books/search/:value', 

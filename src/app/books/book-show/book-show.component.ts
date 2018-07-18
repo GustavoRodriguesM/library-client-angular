@@ -18,13 +18,15 @@ export class BookShowComponent implements OnInit {
     ) {}
 
     ngOnInit(): void{
-        const id = this.activatedRoute.snapshot.params.id;
-        this.findById(id);
+        this.book = this.activatedRoute.snapshot.data.book;
+        this.findAuthors(this.book);
     }
 
-    findById(id: string) {
+    findAuthors(book: Book){
         this.bookService
-            .findById(id)
-            .subscribe( data => { this.book = data });
+            .findAuthorsByBookId(String(book.id))
+            .subscribe(data => {
+                this.book.authors = data._embedded.authors
+            });
     }
 }
