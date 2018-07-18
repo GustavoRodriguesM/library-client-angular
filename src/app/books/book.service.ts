@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 const API = 'http://localhost:9000';
+const BOOK_WITH_AUTHORS = 'bookWithAuthors';
 
 @Injectable({
     providedIn: 'root'
@@ -25,7 +26,7 @@ export class BookService {
         return this.http.get<any>(API + '/books/search/findAllByTitleContaining?title=' + value);
     }
 
-    findAuthorsByBookId(id : string) {
-        return this.http.get<any>(API + '/books/' + id + '/authors');
+    findByIdWithAuthors(id : string) {
+        return this.http.get<any>(API + '/books/' + id + '?projection=' + BOOK_WITH_AUTHORS);
     }
 }
