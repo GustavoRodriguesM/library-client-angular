@@ -7,6 +7,7 @@ import { BookSearchComponent } from './books/book-search/book-search.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { AuthorShowComponent } from './authors/author-show/author-show.component';
 import { AuthorListComponent } from './authors/author-list/author-list.component';
+import { SignInComponent } from './home/sign-in/sign-in.component';
 
 import { BookSearchResolver } from './books/book-search/book-search.resolver';
 import { BookShowResolver } from './books/book-show/book-show.resolver';
@@ -15,6 +16,10 @@ const routes: Routes = [
   { 
     path: '', 
     component: BookListComponent
+  },
+  {
+    path: 'login',
+    component: SignInComponent
   },
   { 
     path: 'books', 
