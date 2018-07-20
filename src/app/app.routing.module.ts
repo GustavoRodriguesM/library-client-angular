@@ -1,3 +1,4 @@
+import { AuthGuard } from './core/auth/auth.guard';
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -19,7 +20,8 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: SignInComponent
+    component: SignInComponent,
+    canActivate: [AuthGuard]
   },
   { 
     path: 'books', 
