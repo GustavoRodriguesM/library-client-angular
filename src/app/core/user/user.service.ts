@@ -30,4 +30,13 @@ export class UserService {
         const user = jwt_decode(token) as UserAuth;
         this.userSubject.next(user);
     }
+
+    logout(){
+        this.tokenService.logout();
+        this.userSubject.next(null);
+    }
+
+    isLogged(){
+        return this.tokenService.hasToken();
+    }
 }
