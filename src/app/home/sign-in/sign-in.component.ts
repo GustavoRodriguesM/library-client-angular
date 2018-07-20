@@ -1,4 +1,4 @@
-import { TokenService } from './../../core/token/token.service';
+import { UserService } from './../../core/user/user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../core/auth/auth.service';
@@ -15,7 +15,7 @@ export class SignInComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private auth: AuthService,
-    private tokenService: TokenService,
+    private userService: UserService,
     private router: Router
   ) { }
 
@@ -33,7 +33,7 @@ export class SignInComponent implements OnInit {
     this.auth
       .authenticate(username, password)
       .subscribe(data => {
-        this.tokenService.save(data.access_token);
+        this.userService.setToken(data.access_token);
         this.router.navigate(['']);
       },error => {
         console.log("Error!");
