@@ -1,7 +1,8 @@
 import { UserAuth } from './../user/user-auth';
 import { Observable } from 'rxjs';
 import { UserService } from './../user/user.service';
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'lib-header',
@@ -10,9 +11,21 @@ import { Component } from "@angular/core";
 export class HeaderComponent {
 
     user$: Observable<UserAuth>;
+    @Input() value: string = '';
 
-    constructor(userService: UserService){
-        this.user$ = userService.getUser();
+    constructor(
+        private userService: UserService,
+        private router: Router){
+        this.user$ = this.userService.getUser();
+    }
+
+    logout(){
+        this.userService.logout();
+        this.router.navigate(['/login']);
+    }
+
+    search(){
+        this.router.navigate(['books/search', this.value]);
     }
 
 }
