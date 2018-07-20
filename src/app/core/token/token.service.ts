@@ -13,7 +13,7 @@ export class TokenService {
     window.localStorage.setItem(TOKEN_FIELD, value);
   }
 
-  logged? () {
+  hasToken () {
     return !!this.getToken();
   }
 
