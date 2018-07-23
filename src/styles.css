@@ -3,3 +3,22 @@
 *, body {
     font-family: 'Ubuntu', sans-serif;
 }
+
+.bg-library {
+    background-color: #417E44 !important;
+}
+
+a {
+    color: #417E44 !important;
+}
+a:hover {
+    text-decoration: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #5BB871 !important;
+}
+
+p,span {
+    color: #5D5D5D !important;
+}

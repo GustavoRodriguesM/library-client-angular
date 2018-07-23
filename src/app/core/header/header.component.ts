@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 
 @Component({
     selector: 'lib-header',
+    styleUrls: ['./header.component.css'],
     templateUrl: './header.component.html'
 })
 export class HeaderComponent {
@@ -21,6 +22,10 @@ export class HeaderComponent {
 
     logout(){
         this.userService.logout();
+        this.router.navigate(['/login']);
+    }
+
+    login() {
         this.router.navigate(['/login']);
     }
 

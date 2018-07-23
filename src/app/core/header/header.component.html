@@ -1,14 +1,17 @@
 <header class="fixed-top">
-    <nav class="navbar navbar-light bg-white">
-        <a class="navbar-brand" [routerLink]="['']">Library</a>
+    <nav class="navbar navbar-light bg-library">
+        <a class="navbar-brand text-white" [routerLink]="['']">Library</a>
         <div>
             <input placeholder="Search" [(ngModel)]="value" class='form-control' style='display: inline-block; width: 90%' />
             <i class='fa fa-search ml-2' (click)='search()'></i>
         </div>
-        <div *ngIf="(user$ | async) as user; else login" class="mr-1">
+        <div *ngIf="(user$ | async) as user;" class="mr-1">
             <i class="fa fa-user-circle"></i>
             <a class="mr-1">{{user.user_name}}</a>
             <a (click)="logout()">(Logout)</a>
+        </div>
+        <div *ngIf="!(user$ | async) as user;" class="mr-1">
+            <a (click)="login()" class='btn btn-success text-white'>Sign in</a>
         </div>
     </nav>
 </header>
