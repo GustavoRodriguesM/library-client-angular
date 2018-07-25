@@ -1,0 +1,63 @@
+<div class="col-md-6 offset-md-3">
+  <h1 class="text-center">Register</h1>
+  <form class="form mt-4" [formGroup]="registerForm" (submit)="register()" method="POST">
+    <div class="form-group">
+      <input type="text" formControlName="name" placeholder="Name" class="form-control" />
+      <lib-vmessage 
+        text='Name is required'
+        *ngIf="registerForm.get('name').errors?.required">
+      </lib-vmessage>
+    </div>
+    <div class="form-group">
+      <input type="email" formControlName="email" placeholder="Email" class="form-control"/>
+      <lib-vmessage 
+        text='Email is required'
+        *ngIf="registerForm.get('email').errors?.required">
+      </lib-vmessage>
+      <lib-vmessage 
+        text='Invalid email!'
+        *ngIf="registerForm.get('email').errors?.email">
+      </lib-vmessage>
+      <lib-vmessage 
+        text='Email already taken.'
+        *ngIf="registerForm.get('email').errors?.emailTaken">
+      </lib-vmessage>
+      <small class="text-success" *ngIf="registerForm.get('email').valid">Email is avaiable</small>
+    </div>
+    <div class="form-group">
+      <div class="form-row">
+        <div class="col-md-6">
+          <input type="password" formControlName="password" placeholder="Password" class="form-control"/>
+          <lib-vmessage 
+            text='Password is required'
+            *ngIf="registerForm.get('password').errors?.required">
+          </lib-vmessage>
+          <lib-vmessage 
+            text='Min 7 characters'
+            *ngIf="registerForm.get('password').errors?.minlength">
+          </lib-vmessage>
+        </div>
+        <div class="col-md-6">
+          <input type="password" formControlName="passwordConfirmation" placeholder="Confirm the password" class="form-control"/>
+          <lib-vmessage 
+            text='Password confirmation is required'
+            *ngIf="registerForm.get('passwordConfirmation').errors?.required">
+          </lib-vmessage>
+          <lib-vmessage 
+            text='Passwords doesnt match!' 
+            *ngIf="registerForm.get('passwordConfirmation').errors?.confirm">
+          </lib-vmessage>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="date" formControlName="birthday" class="form-control"/>
+      <lib-vmessage 
+        text='Birthday is required'
+        *ngIf="registerForm.get('birthday').errors?.required">
+      </lib-vmessage>
+    </div>
+    <button type="submit" [disabled]="registerForm.invalid || registerForm.pending" class="btn btn-success">Register</button>
+  </form>
+  <a routerLink="/login">Already a user? Login!</a>
+</div>

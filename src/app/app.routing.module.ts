@@ -9,6 +9,7 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { AuthorShowComponent } from './authors/author-show/author-show.component';
 import { AuthorListComponent } from './authors/author-list/author-list.component';
 import { SignInComponent } from './home/sign-in/sign-in.component';
+import { SignUpComponent } from './home/sign-up/sign-up.component';
 
 import { BookSearchResolver } from './books/book-search/book-search.resolver';
 import { BookShowResolver } from './books/book-show/book-show.resolver';
@@ -21,6 +22,11 @@ const routes: Routes = [
   {
     path: 'login',
     component: SignInComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'register',
+    component: SignUpComponent,
     canActivate: [AuthGuard]
   },
   { 
