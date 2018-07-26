@@ -18,7 +18,9 @@ export class TokenService {
   }
 
   getToken(){
-    return window.localStorage.getItem(TOKEN_FIELD);
+    if(!!window.localStorage.getItem(TOKEN_FIELD))
+      return window.localStorage.getItem(TOKEN_FIELD);
+    return null;
   }
 
   logout (){
