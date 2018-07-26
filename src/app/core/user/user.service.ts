@@ -31,6 +31,24 @@ export class UserService {
         this.userSubject.next(user);
     }
 
+    private decode() {
+        const token = this.tokenService.getToken();
+        if(token != null)
+            return jwt_decode(token) as UserAuth;
+        return null;
+    }
+
+    hasRole(role: string) {
+        const user = this.decode();
+        let has  = false;
+        if(user != null){
+            user.authorities.forEach(authority => {
+                if(role == authority) has = true
+            });
+        }
+        return has;
+    }
+
     logout(){
         this.tokenService.logout();
         this.userSubject.next(null);
