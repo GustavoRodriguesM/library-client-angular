@@ -1,9 +1,10 @@
+import { environment } from './../../environments/environment';
 import { Book } from './book';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-const API = 'http://localhost:9000';
+const API = environment.apiUrl;
 const BOOK_WITH_AUTHORS = 'bookWithAuthors';
 
 @Injectable({

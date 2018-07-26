@@ -1,8 +1,9 @@
 import { NewUser } from './new-user';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
+import { environment } from '../../../environments/environment';
 
-const API = 'http://localhost:9000'
+const API = environment.apiUrl;
 
 @Injectable({
     providedIn: 'root'

@@ -5,8 +5,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, Input } from '@angular/core';
 import { ConfirmMatchValidator } from '../../utils/validators/confirm-match.validator';
 import { UserNotTakenValidatorService } from './user-not-taken.validator.service';
+import { environment } from '../../../environments/environment';
 
-const API = 'http://localhost:9000';
+const API = environment.apiUrl;
 
 @Component({
   selector: 'app-sign-up',
