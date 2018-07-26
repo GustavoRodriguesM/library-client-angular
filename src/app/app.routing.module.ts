@@ -1,3 +1,5 @@
+import { AdminOnlyGuard } from './core/auth/admin-only.guard';
+import { BookCreateComponent } from './books/book-create/book-create.component';
 import { AuthGuard } from './core/auth/auth.guard';
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -34,6 +36,11 @@ const routes: Routes = [
     component: BookListComponent 
   },
   { 
+    path: 'books/create', 
+    component: BookCreateComponent,
+    canActivate: [AdminOnlyGuard] 
+  },
+  { 
     path: 'books/:id', 
     component: BookShowComponent,
     resolve: {
@@ -65,5 +72,3 @@ const routes: Routes = [
   imports: [ RouterModule.forRoot(routes) ]
 })
 export class AppRoutingModule {}
-
-
