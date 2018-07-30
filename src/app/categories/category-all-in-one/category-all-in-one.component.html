@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3 text-center">
+    <div *ngIf='category.id != null'>
+      <h5>Editing category with id {{category.id}}</h5>
+      <a (click)='reset()'>To exit the edit mode click here</a>
+    </div>
+    <div class="row">
+      <div class="col-md-8 offset-md-2 text-center">
+        <div class="form-group text-center">
+          <input type="text" class="form-control" placeholder="Name" [(ngModel)]='category.name'>
+        </div>
+        <div class="form-group text-center">
+          <button class='btn btn-success' *ngIf='category.id == null' (click)='save()'>Save</button>
+          <button class='btn btn-warning' *ngIf='category.id != null' (click)='update()'>Update</button>
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Alter</th>
+            <th>Disable</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let category of categories'>
+            <td>{{category.name}}</td>
+            <td><a (click)='alterForm(category)' class='btn btn-warning text-white'>Alter</a></td>
+            <td *ngIf='category.deletedAt == null'><a (click)='disable(category.id)' class='btn btn-danger text-white'>Disable</a></td>
+            <td *ngIf='category.deletedAt != null'><a (click)='enable(category.id)' class='btn btn-success text-white'>Enable</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

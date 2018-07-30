@@ -1,3 +1,4 @@
+import { CategoriesModule } from './categories/categories.module';
 import { CoreModule } from './core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -22,7 +23,8 @@ import { HomeModule } from './home/home.module';
     AuthorModule,
     HomeModule,
     CoreModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CategoriesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

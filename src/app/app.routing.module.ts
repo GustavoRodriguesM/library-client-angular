@@ -15,6 +15,7 @@ import { SignUpComponent } from './home/sign-up/sign-up.component';
 
 import { BookSearchResolver } from './books/book-search/book-search.resolver';
 import { BookShowResolver } from './books/book-show/book-show.resolver';
+import { CategoryAllInOneComponent } from './categories/category-all-in-one/category-all-in-one.component';
 
 const routes: Routes = [
   { 
@@ -61,6 +62,11 @@ const routes: Routes = [
   {
     path: 'authors/:idAuthor',
     component: AuthorShowComponent
+  },
+  {
+    path: 'categories',
+    component: CategoryAllInOneComponent,
+    canActivate: [AdminOnlyGuard]
   },
   { 
     path: '**', 
