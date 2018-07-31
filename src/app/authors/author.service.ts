@@ -1,23 +1,32 @@
+import { TokenService } from './../core/token/token.service';
+import { environment } from './../../environments/environment';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Author } from './author';
 
-const API = 'http://localhost:9000';
+const API = environment.apiUrl;
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthorService {
 
-  constructor(private http: HttpClient){
-  }
+  constructor(
+    private http: HttpClient,
+    private tokenService: TokenService
+  ){}
 
   findById(id : string): Observable<Author> {
-      return this.http.get<Author>(API + '/authors/' + id);
+    return this.http.get<Author>(API + '/authors/' + id);
   }
 
   findAll(): Observable<any> {
-      return this.http.get<any>(API + '/authors');
+    return this.http.get<any>(API + '/authors');
+  }
+
+  save(author: Author): any {
+    const headers = new HttpHeaders({ authorization : 'Bearer ' + this.tokenService.getToken()});
+    return this.http.post<any>(API + '/authors', author, {headers: headers});
   }
 }

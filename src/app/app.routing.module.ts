@@ -1,8 +1,9 @@
+import { AuthorCreateComponent } from './authors/author-create/author-create.component';
 import { AdminOnlyGuard } from './core/auth/admin-only.guard';
 import { BookCreateComponent } from './books/book-create/book-create.component';
 import { AuthGuard } from './core/auth/auth.guard';
 import { NgModule }             from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanActivate } from '@angular/router';
 
 import { BookListComponent } from './books/book-list/book-list.component';
 import { BookShowComponent } from './books/book-show/book-show.component';
@@ -58,6 +59,11 @@ const routes: Routes = [
   {
     path: 'authors',
     component: AuthorListComponent
+  },
+  {
+    path: 'authors/create',
+    component: AuthorCreateComponent,
+    canActivate: [AdminOnlyGuard]
   },
   {
     path: 'authors/:idAuthor',
