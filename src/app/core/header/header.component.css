@@ -1,3 +1,7 @@
 h1, h2, h3, h4, h5, h6, a {
     color: #417E44 !important;
 }
+
+.text-white {
+    color: #fff !important;
+}

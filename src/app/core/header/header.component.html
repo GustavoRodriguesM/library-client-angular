@@ -1,17 +1,57 @@
-<header class="fixed-top col-md-10 offset-md-1">
-    <nav class="navbar navbar-light">
-        <a class="navbar-brand text-white" [routerLink]="['']">Library</a>
-        <div>
-            <input placeholder="Search" [(ngModel)]="value" class='form-control' style='display: inline-block; width: 90%' />
-            <i class='fa fa-search ml-2' (click)='search()'></i>
-        </div>
-        <div *ngIf="(user$ | async) as user;" class="mr-1">
+<header class="fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!--
+        <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Dropdown
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+      -->
+      <form class="form-inline my-2 my-lg-0 ml-auto">
+        <input placeholder="Search" [(ngModel)]="value" name="value" class="form-control mr-sm-2" aria-label="Search"/>
+        <a class="btn btn-outline-success my-2 my-sm-0" href="/books/search/{{value}}">Search</a>
+      </form>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <div *ngIf="(user$ | async) as user;" class="mr-1">
             <i class="fa fa-user-circle"></i>
-            <a class="mr-1">{{user.user_name}}</a>
-            <a (click)="logout()">(Logout)</a>
-        </div>
-        <div *ngIf="!(user$ | async) as user;" class="mr-1">
+            <a class="mr-1">&nbsp;{{user.name}}</a>
+            <a (click)="logout()" class="btn btn-danger text-white">Logout</a>
+          </div>
+          <div *ngIf="!(user$ | async) as user;" class="mr-1">
             <a (click)="login()" class='btn btn-success text-white'>Sign in</a>
-        </div>
-    </nav>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </header>

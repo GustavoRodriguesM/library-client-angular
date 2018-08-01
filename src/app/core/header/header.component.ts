@@ -28,9 +28,4 @@ export class HeaderComponent {
     login() {
         this.router.navigate(['/login']);
     }
-
-    search(){
-        this.router.navigate(['books/search', this.value]);
-    }
-
 }
