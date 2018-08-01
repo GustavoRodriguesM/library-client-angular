@@ -1,25 +1,20 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 
-import { AuthorShowComponent } from './author-show/author-show.component';
-import { AuthorListComponent } from './author-list/author-list.component';
-import { AuthorCreateComponent } from './author-create/author-create.component';
+import { AuthorShowComponent } from "./author-show/author-show.component";
+import { AuthorListComponent } from "./author-list/author-list.component";
+import { AuthorCreateComponent } from "./author-create/author-create.component";
 
-import { VMessageModule } from './../utils/vmessage/vmessage.module';
+import { VMessageModule } from "./../utils/vmessage/vmessage.module";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    FormsModule,
-    VMessageModule
-  ],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, VMessageModule],
   declarations: [
     AuthorShowComponent,
     AuthorListComponent,
     AuthorCreateComponent
   ],
-  exports: [ AuthorShowComponent ]
+  exports: [AuthorShowComponent]
 })
-export class AuthorModule { }
+export class AuthorModule {}

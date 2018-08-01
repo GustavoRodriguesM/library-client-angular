@@ -1,29 +1,28 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
-const TOKEN_FIELD = 'access_token'
+const TOKEN_FIELD = "access_token";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class TokenService {
+  constructor() {}
 
-  constructor() { }
-
-  save (value: string){
+  save(value: string) {
     window.localStorage.setItem(TOKEN_FIELD, value);
   }
 
-  hasToken () {
+  hasToken() {
     return !!this.getToken();
   }
 
-  getToken(){
-    if(!!window.localStorage.getItem(TOKEN_FIELD))
+  getToken() {
+    if (!!window.localStorage.getItem(TOKEN_FIELD))
       return window.localStorage.getItem(TOKEN_FIELD);
     return null;
   }
 
-  logout (){
+  logout() {
     window.localStorage.removeItem(TOKEN_FIELD);
   }
 }

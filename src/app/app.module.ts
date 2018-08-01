@@ -1,20 +1,18 @@
-import { CategoriesModule } from './categories/categories.module';
-import { CoreModule } from './core/core.module';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
+import { CoreModule } from "./core/core.module";
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { AppComponent } from "./app.component";
 
-import { AppRoutingModule } from './app.routing.module';
-import { UtilsModule } from './utils/utils.module';
-import { BookModule } from './books/books.module';
-import { ErrorsModule } from './errors/errors.module';
-import { AuthorModule } from './authors/author.module';
-import { HomeModule } from './home/home.module';
+import { CategoriesModule } from "./categories/categories.module";
+import { AppRoutingModule } from "./app.routing.module";
+import { UtilsModule } from "./utils/utils.module";
+import { BookModule } from "./books/books.module";
+import { ErrorsModule } from "./errors/errors.module";
+import { AuthorModule } from "./authors/author.module";
+import { HomeModule } from "./home/home.module";
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     UtilsModule,
     BrowserModule,
@@ -29,4 +27,4 @@ import { HomeModule } from './home/home.module';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

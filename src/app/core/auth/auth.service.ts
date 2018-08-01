@@ -1,26 +1,30 @@
-import { environment } from './../../../environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { environment } from "./../../../environments/environment";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Injectable } from "@angular/core";
 
 const API = environment.apiUrl;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class AuthService {
+  constructor(private http: HttpClient) {}
 
-  constructor(
-    private http: HttpClient
-  ) { }
-
-  authenticate (username: string, password: string): any {
+  authenticate(username: string, password: string): any {
     let headers: HttpHeaders = this.getClient();
-    const url = API + '/oauth/token?grant_type=password&username=' + username + '&password=' + password;
-    return this.http.post(url, {}, {headers: headers});
+    const url =
+      API +
+      "/oauth/token?grant_type=password&username=" +
+      username +
+      "&password=" +
+      password;
+    return this.http.post(url, {}, { headers: headers });
   }
 
-  getClient(){
-    const headers = new HttpHeaders({ authorization : 'Basic ' + btoa('web' + ':' + '123')});
+  getClient() {
+    const headers = new HttpHeaders({
+      authorization: "Basic " + btoa("web" + ":" + "123")
+    });
     return headers;
   }
 }

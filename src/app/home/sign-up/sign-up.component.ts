@@ -1,11 +1,12 @@
 import { Router } from '@angular/router';
-import { SignUpService } from './signup.service';
-import { NewUser } from './new-user';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Component, OnInit, Input } from '@angular/core';
-import { ConfirmMatchValidator } from '../../utils/validators/confirm-match.validator';
-import { UserNotTakenValidatorService } from './user-not-taken.validator.service';
+import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
+
+import { NewUser } from './new-user';
+import { SignUpService } from './signup.service';
+import { UserNotTakenValidatorService } from './user-not-taken.validator.service';
+import { ConfirmMatchValidator } from '../../utils/validators/confirm-match.validator';
 
 const API = environment.apiUrl;
 
