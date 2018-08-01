@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { environment } from "./../../environments/environment";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 
 import { Category } from "./category";
 import { TokenService } from "./../core/token/token.service";
@@ -18,42 +18,18 @@ export class CategoryService {
   }
 
   disable(id: number) {
-    const headers = new HttpHeaders({
-      authorization: "Bearer " + this.tokenService.getToken()
-    });
-    return this.http.post<any>(
-      API + "/categories/" + id + "/disable",
-      {},
-      { headers: headers }
-    );
+    return this.http.post<any>( API + "/categories/" + id + "/disable", {});
   }
 
   enable(id: number) {
-    const headers = new HttpHeaders({
-      authorization: "Bearer " + this.tokenService.getToken()
-    });
-    return this.http.post<any>(
-      API + "/categories/" + id + "/enable",
-      {},
-      { headers: headers }
-    );
+    return this.http.post<any>(  API + "/categories/" + id + "/enable", {});
   }
 
   save(category: Category) {
-    const headers = new HttpHeaders({
-      authorization: "Bearer " + this.tokenService.getToken()
-    });
-    return this.http.post<any>(API + "/categories", category, {
-      headers: headers
-    });
+    return this.http.post<any>(API + "/categories", category);
   }
 
   update(category: Category) {
-    const headers = new HttpHeaders({
-      authorization: "Bearer " + this.tokenService.getToken()
-    });
-    return this.http.patch<any>(API + "/categories/" + category.id, category, {
-      headers: headers
-    });
+    return this.http.patch<any>(API + "/categories/" + category.id, category);
   }
 }

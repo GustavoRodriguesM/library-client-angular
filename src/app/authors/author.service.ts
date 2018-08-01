@@ -22,10 +22,7 @@ export class AuthorService {
     return this.http.get<any>(API + "/authors");
   }
 
-  save(author: Author): any {
-    const headers = new HttpHeaders({
-      authorization: "Bearer " + this.tokenService.getToken()
-    });
-    return this.http.post<any>(API + "/authors", author, { headers: headers });
+  save(author: Author) {
+    return this.http.post<any>(API + "/authors", author);
   }
 }
