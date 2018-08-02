@@ -11,9 +11,33 @@ import { AuthorService } from "./../author.service";
 export class AuthorListComponent implements OnInit {
   authors: Author[];
 
-  constructor(private authorService: AuthorService) {}
+  constructor(
+    private authorService: AuthorService
+  ) {}
 
   ngOnInit() {
+    this.findAll();
+  }
+
+  disable(id) {
+    this.authorService.disable(id).subscribe(
+      () => {
+        this.findAll();
+      },
+      err => console.log(err)
+    );
+  }
+
+  enable(id) {
+    this.authorService.enable(id).subscribe(
+      () => {
+        this.findAll();
+      },
+      err => console.log(err)
+    );
+  }
+
+  findAll() {
     this.authorService
       .findAll()
       .subscribe(data => (this.authors = data._embedded.authors));

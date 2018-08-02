@@ -25,4 +25,12 @@ export class AuthorService {
   save(author: Author) {
     return this.http.post<any>(API + "/authors", author);
   }
+
+  enable(id: string){
+    return this.http.post<any>(API + "/authors/" + id + "/enable", {});
+  }
+
+  disable(id: string){
+    return this.http.post<any>(API + "/authors/" + id + "/disable", {});
+  }
 }

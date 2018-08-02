@@ -1,26 +1,44 @@
 <div class="row">
   <div class="col-md-6 offset-md-3">
+    <a routerLink='/authors/create'>Add author</a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
     <div class="table-responsive">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Name</th>
-              <th>Description (shorted)</th>
-              <th>Birthday</th>
-            </tr>
-          </thead>
-          <tbody>
-    
-            <tr *ngFor="let author of authors">
-              <td>{{ author.id }}</td>
-              <td>{{ author.name }}</td>
-              <td class="text-justify">{{ author.description | slice:0:200 }}</td>
-              <td>{{ author.birthday | date }}</td>
-            </tr>
-            
-          </tbody>
-        </table>
-      </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Description (shorted)</th>
+            <th>Birthday</th>
+            <th>Alter</th>
+            <th>Disable</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let author of authors">
+            <td>{{ author.id }}</td>
+            <td>
+              <a routerLink='/authors/{{ author.id }}'>{{ author.name }}</a>
+            </td>
+            <td class="text-justify">{{ author.description | slice:0:200 }}</td>
+            <td>{{ author.birthday | date }}</td>
+            <td>
+              <a routerLink='/authors/{{ author.id }}/alter' class='btn btn-warning text-white'>Alter</a>
+            </td>
+            <td *ngIf='author.deletedAt == null'>
+              <a (click)='disable(author.id)' class='btn btn-danger text-white'>Disable</a>
+            </td>
+            <td *ngIf='author.deletedAt != null'>
+              <a (click)='enable(author.id)' class='btn btn-success text-white'>Enable</a>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
