@@ -27,7 +27,7 @@
             <td class="text-justify">{{ author.description | slice:0:200 }}</td>
             <td>{{ author.birthday | date }}</td>
             <td>
-              <a routerLink='/authors/{{ author.id }}/alter' class='btn btn-warning text-white'>Alter</a>
+              <a routerLink='/authors/{{ author.id }}/update' class='btn btn-warning text-white'>Alter</a>
             </td>
             <td *ngIf='author.deletedAt == null'>
               <a (click)='disable(author.id)' class='btn btn-danger text-white'>Disable</a>

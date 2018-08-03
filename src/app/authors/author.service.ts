@@ -26,11 +26,15 @@ export class AuthorService {
     return this.http.post<any>(API + "/authors", author);
   }
 
-  enable(id: string){
+  update(author: Author): any {
+    return this.http.put<any>(API + "/authors/" + author.id, author);
+  }
+
+  enable(id: string) {
     return this.http.post<any>(API + "/authors/" + id + "/enable", {});
   }
 
-  disable(id: string){
+  disable(id: string) {
     return this.http.post<any>(API + "/authors/" + id + "/disable", {});
   }
 }

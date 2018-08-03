@@ -1,3 +1,5 @@
+import { AuthorUpdateResolver } from './authors/author-update/author-update.resolver';
+import { AuthorUpdateComponent } from './authors/author-update/author-update.component';
 import { AuthorCreateComponent } from "./authors/author-create/author-create.component";
 import { AdminOnlyGuard } from "./core/auth/admin-only.guard";
 import { BookCreateComponent } from "./books/book-create/book-create.component";
@@ -59,6 +61,14 @@ const routes: Routes = [
   {
     path: "authors/create",
     component: AuthorCreateComponent,
+    canActivate: [AdminOnlyGuard]
+  },
+  {
+    path: "authors/:idAuthor/update",
+    component: AuthorUpdateComponent,
+    resolve: {
+      author: AuthorUpdateResolver
+    },
     canActivate: [AdminOnlyGuard]
   },
   {

@@ -13,7 +13,6 @@ export class BookShowComponent implements OnInit {
   book: Book = new Book();
 
   constructor(
-    private bookService: BookService,
     private activatedRoute: ActivatedRoute
   ) {}
 

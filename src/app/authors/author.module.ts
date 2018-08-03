@@ -6,6 +6,7 @@ import { RouterModule } from "@angular/router";
 import { AuthorShowComponent } from "./author-show/author-show.component";
 import { AuthorListComponent } from "./author-list/author-list.component";
 import { AuthorCreateComponent } from "./author-create/author-create.component";
+import { AuthorUpdateComponent } from './author-update/author-update.component';
 
 import { VMessageModule } from "./../utils/vmessage/vmessage.module";
 
@@ -20,7 +21,8 @@ import { VMessageModule } from "./../utils/vmessage/vmessage.module";
   declarations: [
     AuthorShowComponent,
     AuthorListComponent,
-    AuthorCreateComponent
+    AuthorCreateComponent,
+    AuthorUpdateComponent
   ],
   exports: [AuthorShowComponent]
 })
