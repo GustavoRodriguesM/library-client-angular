@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges } from "@angular/core";
 
 import { Book } from "./../../book";
+import { environment } from "../../../../environments/environment";
 
 @Component({
   selector: "lib-books",
@@ -10,6 +11,8 @@ import { Book } from "./../../book";
 export class BooksComponent implements OnChanges {
   @Input() books: Book[] = [];
   rows: any[] = [];
+
+  API = environment.apiUrl;
 
   constructor() {}
 

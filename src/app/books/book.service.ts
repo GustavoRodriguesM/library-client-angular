@@ -12,6 +12,7 @@ const BOOK_WITH_AUTHORS = "bookWithAuthors";
   providedIn: "root"
 })
 export class BookService {
+
   constructor(private http: HttpClient) {}
 
   findById(id: string): Observable<Book> {
@@ -32,5 +33,15 @@ export class BookService {
     return this.http.get<any>(
       API + "/books/" + id + "?projection=" + BOOK_WITH_AUTHORS
     );
+  }
+
+  save(book: Book) {
+    return this.http.post<any>(API + '/books', book);
+  }
+
+  uploadCover(file: File){
+    let formData = new FormData();
+    formData.append('file', file);
+    return this.http.post<any>(API + '/upload/cover', formData);
   }
 }

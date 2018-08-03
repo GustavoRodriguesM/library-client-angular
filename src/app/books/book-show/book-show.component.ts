@@ -1,7 +1,7 @@
+import { environment } from './../../../environments/environment';
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 
-import { BookService } from "./../book.service";
 import { Book } from "../book";
 
 @Component({
@@ -11,6 +11,8 @@ import { Book } from "../book";
 })
 export class BookShowComponent implements OnInit {
   book: Book = new Book();
+
+  API = environment.apiUrl;
 
   constructor(
     private activatedRoute: ActivatedRoute
