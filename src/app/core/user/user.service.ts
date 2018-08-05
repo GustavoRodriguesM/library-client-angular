@@ -47,6 +47,17 @@ export class UserService {
     return has;
   }
 
+  expiredToken() {
+    if (!this.isLogged()) return false;
+
+    const user = this.decode();
+    let expirationToken = new Date(user.exp * 1000);
+    let timeNow = new Date();
+
+    if (expirationToken.getTime() <= timeNow.getTime()) return true;
+    else return false;
+  }
+
   logout() {
     this.tokenService.logout();
     this.userSubject.next(null);

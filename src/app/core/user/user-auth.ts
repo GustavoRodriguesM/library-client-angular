@@ -3,5 +3,6 @@ export interface UserAuth {
   name: string;
   scopes: string[];
   active: boolean;
+  exp: number;
   authorities: string[];
 }
