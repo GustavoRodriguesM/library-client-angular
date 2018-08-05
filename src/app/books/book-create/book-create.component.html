@@ -2,43 +2,62 @@
   <div class="col-md-8 offset-md-2">
     <form class="form" [formGroup]='bookCreateForm' (submit)="test()" method="POST">
       <div class="form-group">
-        <input type="text" class="form-control" formControlName="title" placeholder="Title"/> 
-        <lib-vmessage 
-          text='Title is required'
-          *ngIf="bookCreateForm.get('title').errors?.required">
+        <input type="text" class="form-control" formControlName="title" placeholder="Title" />
+        <lib-vmessage text='Title is required' *ngIf="bookCreateForm.get('title').errors?.required">
         </lib-vmessage>
       </div>
       <div class="form-group">
-        <textarea type="text" class="form-control" formControlName="description" placeholder="Description"></textarea> 
-        <lib-vmessage 
-          text='Description is required'
-          *ngIf="bookCreateForm.get('description').errors?.required">
-        </lib-vmessage> 
-        <lib-vmessage 
-          text='Max length is 400'
-          *ngIf="bookCreateForm.get('description').errors?.maxlength">
-        </lib-vmessage> 
+        <textarea type="text" class="form-control" formControlName="description" placeholder="Description"></textarea>
+        <lib-vmessage text='Description is required' *ngIf="bookCreateForm.get('description').errors?.required">
+        </lib-vmessage>
+        <lib-vmessage text='Max length is 400' *ngIf="bookCreateForm.get('description').errors?.maxlength">
+        </lib-vmessage>
       </div>
       <div class="form-group">
         <div class="form-row">
           <div class="col-md-6">
-            <input type="number" class="form-control" formControlName="units" placeholder="Units"/>
-            <lib-vmessage 
-              text='Units is required'
-              *ngIf="bookCreateForm.get('units').errors?.required">
-            </lib-vmessage> 
+            <input type="number" class="form-control" formControlName="units" placeholder="Units" />
+            <lib-vmessage text='Units is required' *ngIf="bookCreateForm.get('units').errors?.required">
+            </lib-vmessage>
           </div>
           <div class="col-md-6">
-            <input type="text" class="form-control" formControlName="isbn" placeholder="ISBN"/>
-            <lib-vmessage 
-              text='ISBN is required'
-              *ngIf="bookCreateForm.get('isbn').errors?.required">
+            <input type="text" class="form-control" formControlName="isbn" placeholder="ISBN" />
+            <lib-vmessage text='ISBN is required' *ngIf="bookCreateForm.get('isbn').errors?.required">
             </lib-vmessage>
           </div>
         </div>
       </div>
       <div class="form-group">
-        <input type="file" accept="image/*" formControlName='file' (change)='file = $event.target.files[0]'/>
+        <div class="form-row">
+          <div class="col-md-6">
+            <label for="authors">Authors</label>
+            <select multiple class="form-control" id="authors" formControlName='authors' name='authors'>
+              <option 
+                *ngFor='let author of authors'
+                [value]='authorResource + author.id'>{{ author.name }}</option>
+            </select>
+            <lib-vmessage
+              text='Select one or more authors' *ngIf="bookCreateForm.get('authors').errors?.required">
+            </lib-vmessage>
+          </div>
+          <div class="col-md-6">
+              <label for="categories">Categories</label>
+              <select multiple class="form-control" id="categories" formControlName='categories' name='categories'>
+                <option 
+                  *ngFor='let category of categories'
+                  [value]='categoryResource + category.id'>{{ category.name }}</option>
+              </select>
+              <lib-vmessage
+                text='Select one or more categories' *ngIf="bookCreateForm.get('categories').errors?.required">
+              </lib-vmessage>
+            </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="file" accept="image/*" formControlName='file' (change)='file = $event.target.files[0]' />
+        <lib-vmessage
+          text='Please upload a cover' *ngIf="bookCreateForm.get('file').errors?.required">
+        </lib-vmessage>
       </div>
       <button type="submit" [disabled]="bookCreateForm.invalid || bookCreateForm.pending" class="btn btn-success">Register</button>
     </form>

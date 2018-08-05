@@ -1,3 +1,4 @@
+import { UserService } from './../../core/user/user.service';
 import { environment } from './../../../environments/environment';
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
@@ -15,10 +16,15 @@ export class BookShowComponent implements OnInit {
   API = environment.apiUrl;
 
   constructor(
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
     this.book = this.activatedRoute.snapshot.data.book;
+  }
+
+  hasRole(role: string) {
+    return this.userService.hasRole(role);
   }
 }
