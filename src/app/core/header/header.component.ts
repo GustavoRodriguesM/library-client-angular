@@ -15,7 +15,7 @@ export class HeaderComponent {
   @Input() value: string = "";
   
   constructor(private userService: UserService, private router: Router) {
-    this.user$ = this.userService.getUser();
+    this.user$ = this.userService.getUserAsObservable();
   }
 
   hasRole(role: string) {

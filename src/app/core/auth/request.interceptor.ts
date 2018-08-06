@@ -11,7 +11,6 @@ export class RequestInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<any> {
     if (this.tokenService.hasToken() && !this.userService.expiredToken()) {
       const token = this.tokenService.getToken();
-      console.log("aaa");
       req = req.clone({
         setHeaders: {
           authorization: "Bearer " + token

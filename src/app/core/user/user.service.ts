@@ -20,7 +20,7 @@ export class UserService {
     this.decodeAndNotify();
   }
 
-  getUser() {
+  getUserAsObservable() {
     return this.userSubject.asObservable();
   }
 
@@ -30,14 +30,14 @@ export class UserService {
     this.userSubject.next(user);
   }
 
-  private decode() {
+  public getUser() {
     const token = this.tokenService.getToken();
     if (token != null) return jwt_decode(token) as UserAuth;
     return null;
   }
 
   hasRole(role: string) {
-    const user = this.decode();
+    const user = this.getUser();
     let has = false;
     if (user != null) {
       user.authorities.forEach(authority => {
@@ -50,7 +50,7 @@ export class UserService {
   expiredToken() {
     if (!this.isLogged()) return false;
 
-    const user = this.decode();
+    const user = this.getUser();
     let expirationToken = new Date(user.exp * 1000);
     let timeNow = new Date();
 

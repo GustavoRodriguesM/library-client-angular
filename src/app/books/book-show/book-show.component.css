@@ -1,4 +1,9 @@
 .book-cover {
-    width: 200px;
-    height: 300px;
+  width: 200px;
+  height: 300px;
+}
+
+.btn-loan {
+  color: #fff;
+  background-color: #417E44;
 }
