@@ -46,7 +46,7 @@ export class CategoryAllInOneComponent implements OnInit {
   findAll() {
     this.categoryService
       .findAll()
-      .subscribe(data => (this.categories = data._embedded.categories));
+      .subscribe(data => (this.categories = data._embedded.content));
   }
 
   save() {

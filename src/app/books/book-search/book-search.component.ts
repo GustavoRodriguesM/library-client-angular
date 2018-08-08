@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, SimpleChanges, Input } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 
 import { BookService } from '../book.service';
@@ -9,7 +9,7 @@ import { Book } from "../../core/interfaces/book";
   templateUrl: "./book-search.component.html",
   styleUrls: ["./book-search.component.css"]
 })
-export class BookSearchComponent implements OnInit, OnChanges {
+export class BookSearchComponent implements OnInit {
   books: Book[] = [];
   @Input() value = '';
 
@@ -22,18 +22,10 @@ export class BookSearchComponent implements OnInit, OnChanges {
     this.findAll();
   }
 
-  ngOnChanges(changes: SimpleChanges){
-    if(changes.value){
-      console.log("Changes on 'value' are found!");
-      this.findAll();
-    }
-  }
-
   findAll() {
   this.value = this.activatedRoute.snapshot.params.value;
-    console.log("Value: " + this.value);
     this.bookService.findByTitleContaining(this.value)
-      .subscribe(data => this.books = data._embedded.books);
+      .subscribe(data => this.books = data._embedded.content);
   }
 
   

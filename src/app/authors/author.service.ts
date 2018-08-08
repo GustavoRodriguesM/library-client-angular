@@ -1,3 +1,4 @@
+import { Hateoas } from './../core/interfaces/hateoas';
 import { environment } from "../../environments/environment";
 import { Observable } from "rxjs";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
@@ -18,12 +19,12 @@ export class AuthorService {
     return this.http.get<Author>(API + "/authors/" + id);
   }
 
-  findAll(): Observable<any> {
-    return this.http.get<any>(API + "/authors/search/findAllByDeletedAt?");
+  findAll(): Observable<Hateoas<Author>> {
+    return this.http.get<Hateoas<Author>>(API + "/authors/search/findAllByDeletedAt?");
   }
 
-  findAllWithTrashed(): Observable<any> {
-    return this.http.get<any>(API + "/authors");
+  findAllWithTrashed(): Observable<Hateoas<Author>> {
+    return this.http.get<Hateoas<Author>>(API + "/authors");
   }
 
   save(author: Author) {

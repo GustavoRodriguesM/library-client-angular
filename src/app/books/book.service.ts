@@ -1,3 +1,4 @@
+import { Hateoas } from './../core/interfaces/hateoas';
 import { environment } from "../../environments/environment";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
@@ -19,12 +20,12 @@ export class BookService {
     return this.http.get<Book>(API + "/books/" + id);
   }
 
-  findAll(): Observable<any> {
-    return this.http.get<any>(API + "/books");
+  findAll(): Observable<Hateoas<Book>> {
+    return this.http.get<Hateoas<Book>>(API + "/books");
   }
 
-  findByTitleContaining(value: string): Observable<any> {
-    return this.http.get<any>(
+  findByTitleContaining(value: string): Observable<Hateoas<Book>> {
+    return this.http.get<Hateoas<Book>>(
       API + "/books/search/findAllByTitleContaining?title=" + value
     );
   }

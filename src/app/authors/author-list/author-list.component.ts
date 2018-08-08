@@ -40,6 +40,6 @@ export class AuthorListComponent implements OnInit {
   findAll() {
     this.authorService
       .findAllWithTrashed()
-      .subscribe(data => (this.authors = data._embedded.authors));
+      .subscribe(data => (this.authors = data._embedded.content));
   }
 }

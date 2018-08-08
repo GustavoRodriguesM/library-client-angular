@@ -18,8 +18,6 @@ export class LoanService {
       "book": API + '/books/' + book.id,
       "client": API + '/clients/' + client.id
     };
-
-    console.log(loan);
     return this.http.post<any>(API + "/loans", loan);
   }
 }

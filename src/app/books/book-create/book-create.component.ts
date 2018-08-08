@@ -33,11 +33,11 @@ export class BookCreateComponent implements OnInit {
   ngOnInit() {
     this.authorService
       .findAll()
-      .subscribe(data => (this.authors = data._embedded.authors));
+      .subscribe(data => (this.authors = data._embedded.content));
 
     this.categoryService
       .findAll()
-      .subscribe(data => (this.categories = data._embedded.categories));
+      .subscribe(data => (this.categories = data._embedded.content));
 
     this.bookCreateForm = this.formBuilder.group({
       title: ["", Validators.required],

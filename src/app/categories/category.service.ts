@@ -3,7 +3,7 @@ import { environment } from "../../environments/environment";
 import { HttpClient } from "@angular/common/http";
 
 import { Category } from "../core/interfaces/category";
-import { TokenService } from "../core/token/token.service";
+import { Hateoas } from './../core/interfaces/hateoas';
 
 const API = environment.apiUrl;
 
@@ -11,10 +11,10 @@ const API = environment.apiUrl;
   providedIn: "root"
 })
 export class CategoryService {
-  constructor(private http: HttpClient, private tokenService: TokenService) {}
+  constructor(private http: HttpClient) {}
 
   findAll() {
-    return this.http.get<any>(API + "/categories");
+    return this.http.get<Hateoas<Category>>(API + "/categories");
   }
 
   disable(id: number) {
