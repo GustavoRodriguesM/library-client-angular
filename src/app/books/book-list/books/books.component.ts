@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from "@angular/core";
 
-import { Book } from "./../../book";
+import { Book } from "../../../core/interfaces/book";
 import { environment } from "../../../../environments/environment";
 
 @Component({

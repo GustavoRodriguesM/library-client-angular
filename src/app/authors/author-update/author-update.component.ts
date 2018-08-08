@@ -1,10 +1,10 @@
-import { AuthorService } from "./../author.service";
+import { AuthorService } from "../author.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Validators } from "@angular/forms";
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { Component, OnInit } from "@angular/core";
 
-import { Author } from "./../author";
+import { Author } from "../../core/interfaces/author";
 
 @Component({
   selector: "app-author-update",

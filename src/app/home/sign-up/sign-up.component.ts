@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
 
-import { NewUser } from './new-user';
+import { NewUser } from '../../core/interfaces/new-user';
 import { SignUpService } from './signup.service';
 import { UserNotTakenValidatorService } from './user-not-taken.validator.service';
 import { ConfirmMatchValidator } from '../../utils/validators/confirm-match.validator';

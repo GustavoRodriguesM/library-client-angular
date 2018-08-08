@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 
 import { SignInComponent } from "./sign-in/sign-in.component";
 
-import { VMessageModule } from "./../utils/vmessage/vmessage.module";
+import { VMessageModule } from "../utils/vmessage/vmessage.module";
 import { SignUpComponent } from "./sign-up/sign-up.component";
 
 @NgModule({

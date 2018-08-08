@@ -1,9 +1,9 @@
-import { environment } from "./../../environments/environment";
+import { environment } from "../../environments/environment";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
-import { Book } from "./book";
+import { Book } from "../core/interfaces/book";
 
 const API = environment.apiUrl;
 const BOOK_WITH_AUTHORS = "bookWithAuthors";

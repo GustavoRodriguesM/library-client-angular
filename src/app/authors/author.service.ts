@@ -1,10 +1,10 @@
-import { environment } from "./../../environments/environment";
+import { environment } from "../../environments/environment";
 import { Observable } from "rxjs";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 
-import { TokenService } from "./../core/token/token.service";
-import { Author } from "./author";
+import { TokenService } from "../core/token/token.service";
+import { Author } from "../core/interfaces/author";
 
 const API = environment.apiUrl;
 
@@ -19,6 +19,10 @@ export class AuthorService {
   }
 
   findAll(): Observable<any> {
+    return this.http.get<any>(API + "/authors/search/findAllByDeletedAt?");
+  }
+
+  findAllWithTrashed(): Observable<any> {
     return this.http.get<any>(API + "/authors");
   }
 

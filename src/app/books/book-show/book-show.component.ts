@@ -1,11 +1,11 @@
-import { LoanService } from "./../../loans/loan.service";
-import { ClientService } from "./../../clients/client.service";
-import { UserService } from "./../../core/user/user.service";
-import { environment } from "./../../../environments/environment";
+import { LoanService } from "../../loans/loan.service";
+import { ClientService } from "../../clients/client.service";
+import { UserService } from "../../core/user/user.service";
+import { environment } from "../../../environments/environment";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 
-import { Book } from "../book";
+import { Book } from "../../core/interfaces/book";
 
 @Component({
   selector: "lib-book-show",

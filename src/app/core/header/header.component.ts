@@ -2,8 +2,8 @@ import { Observable } from "rxjs";
 import { Component, Input } from "@angular/core";
 import { Router } from "@angular/router";
 
-import { UserService } from "./../user/user.service";
-import { UserAuth } from "./../user/user-auth";
+import { UserService } from "../user/user.service";
+import { UserAuth } from "../interfaces/user-auth";
 
 @Component({
   selector: "lib-header",

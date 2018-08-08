@@ -11,7 +11,7 @@ import { BookSearchComponent } from "./book-search/book-search.component";
 import { BookCreateComponent } from "./book-create/book-create.component";
 
 import { AuthorModule } from "../authors/author.module";
-import { VMessageModule } from "./../utils/vmessage/vmessage.module";
+import { VMessageModule } from "../utils/vmessage/vmessage.module";
 
 @NgModule({
   declarations: [

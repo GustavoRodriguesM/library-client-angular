@@ -1,8 +1,8 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
-import { AuthorService } from './../author.service';
-import { Author } from './../author';
+import { AuthorService } from '../author.service';
+import { Author } from '../../core/interfaces/author';
 
 @Component({
   selector: 'lib-author-show',

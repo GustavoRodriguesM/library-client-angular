@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "../../../environments/environment";
 
-import { NewUser } from "./new-user";
+import { NewUser } from "../../core/interfaces/new-user";
 
 const API = environment.apiUrl;
 

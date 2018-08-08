@@ -1,8 +1,8 @@
 import { Component, OnInit, OnChanges, SimpleChanges, Input } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 
-import { BookService } from './../book.service';
-import { Book } from "../book";
+import { BookService } from '../book.service';
+import { Book } from "../../core/interfaces/book";
 
 @Component({
   selector: "app-book-search",

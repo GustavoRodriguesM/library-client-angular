@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 
-import { Author } from "../author";
-import { AuthorService } from "./../author.service";
+import { Author } from "../../core/interfaces/author";
+import { AuthorService } from "../author.service";
 
 @Component({
   selector: "app-author-list",
@@ -39,7 +39,7 @@ export class AuthorListComponent implements OnInit {
 
   findAll() {
     this.authorService
-      .findAll()
+      .findAllWithTrashed()
       .subscribe(data => (this.authors = data._embedded.authors));
   }
 }

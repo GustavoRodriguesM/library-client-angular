@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
-import { environment } from "./../../environments/environment";
+import { environment } from "../../environments/environment";
 import { HttpClient } from "@angular/common/http";
 
-import { Category } from "./category";
-import { TokenService } from "./../core/token/token.service";
+import { Category } from "../core/interfaces/category";
+import { TokenService } from "../core/token/token.service";
 
 const API = environment.apiUrl;
 

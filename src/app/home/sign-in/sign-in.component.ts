@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 
 import { AuthService } from "../../core/auth/auth.service";
-import { UserService } from "./../../core/user/user.service";
+import { UserService } from "../../core/user/user.service";
 
 @Component({
   templateUrl: "./sign-in.component.html",

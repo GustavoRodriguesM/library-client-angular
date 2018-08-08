@@ -1,9 +1,9 @@
-import { Loan } from "./loan";
-import { Book } from "./../books/book";
-import { environment } from "./../../environments/environment";
+import { Loan } from "../core/interfaces/loan";
+import { Book } from "../core/interfaces/book";
+import { environment } from "../../environments/environment";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Client } from "../clients/client";
+import { Client } from "../core/interfaces/client";
 
 const API = environment.apiUrl;
 

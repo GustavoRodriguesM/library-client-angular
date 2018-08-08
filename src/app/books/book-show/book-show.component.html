@@ -13,7 +13,7 @@
         </div>
         <div class="col-md-1">
             <p>Units: {{ book.units }}</p>
-            <button class='btn btn-loan' (click)='reserve()' *ngIf="hasRole('ROLE_CLIENT')">Reserve this book</button>
+            <button class='btn btn-loan' (click)='reserve()' *ngIf="hasRole('ROLE_CLIENT') && book.units > 0">Reserve this book</button>
         </div>
     </div>
     <div class="row">

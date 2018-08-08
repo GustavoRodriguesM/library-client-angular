@@ -1,8 +1,8 @@
 import { Input } from "@angular/core";
 import { Component, OnInit } from "@angular/core";
 
-import { CategoryService } from "./../category.service";
-import { Category } from "../category";
+import { CategoryService } from "../category.service";
+import { Category } from "../../core/interfaces/category";
 
 @Component({
   templateUrl: "./category-all-in-one.component.html",

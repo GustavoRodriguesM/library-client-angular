@@ -8,7 +8,7 @@ import { AuthorListComponent } from "./author-list/author-list.component";
 import { AuthorCreateComponent } from "./author-create/author-create.component";
 import { AuthorUpdateComponent } from './author-update/author-update.component';
 
-import { VMessageModule } from "./../utils/vmessage/vmessage.module";
+import { VMessageModule } from "../utils/vmessage/vmessage.module";
 
 @NgModule({
   imports: [

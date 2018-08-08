@@ -1,9 +1,9 @@
-import { CategoryService } from "./../../categories/category.service";
-import { BookService } from "./../book.service";
+import { CategoryService } from "../../categories/category.service";
+import { BookService } from "../book.service";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { AuthorService } from "./../../authors/author.service";
+import { AuthorService } from "../../authors/author.service";
 import { Component, OnInit } from "@angular/core";
-import { Book } from "../book";
+import { Book } from "../../core/interfaces/book";
 import { Router } from "@angular/router";
 import { environment } from "../../../environments/environment";
 
