@@ -8,10 +8,12 @@ import { HeaderComponent } from "./header/header.component";
 import { RequestInterceptor } from "./auth/request.interceptor";
 import { ExpiredTokenInterceptor } from "./auth/exp-token.interceptor";
 
+import { AlertModule } from './../utils/components/alert/alert.module';
+
 @NgModule({
   declarations: [HeaderComponent],
   exports: [HeaderComponent],
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, AlertModule],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

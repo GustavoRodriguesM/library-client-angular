@@ -3,6 +3,7 @@ import { Component, OnInit } from "@angular/core";
 
 import { CategoryService } from "../category.service";
 import { Category } from "../../core/interfaces/category";
+import { AlertService } from "../../utils/components/alert/alert.service";
 
 @Component({
   templateUrl: "./category-all-in-one.component.html",
@@ -19,7 +20,10 @@ export class CategoryAllInOneComponent implements OnInit {
     deletedAt: null
   };
 
-  constructor(private categoryService: CategoryService) {}
+  constructor(
+    private categoryService: CategoryService,
+    private alertService: AlertService
+  ) {}
 
   ngOnInit() {
     this.findAll();
@@ -28,42 +32,49 @@ export class CategoryAllInOneComponent implements OnInit {
   disable(id) {
     this.categoryService.disable(id).subscribe(
       () => {
+        this.alertService.success("Category disabled");
         this.findAll();
       },
-      err => console.log(err)
+      err => this.alertService.danger("Error on execute operation")
     );
   }
 
   enable(id) {
     this.categoryService.enable(id).subscribe(
       () => {
+        this.alertService.success("Category enabled");
         this.findAll();
       },
-      err => console.log(err)
+      err => this.alertService.danger("Error on execute operation")
     );
   }
 
   findAll() {
     this.categoryService
       .findAll()
-      .subscribe(data => (this.categories = data._embedded.content));
+      .subscribe(
+        data => (this.categories = data._embedded.content),
+        err => this.alertService.danger("Error on execute operation")
+      );
   }
 
   save() {
     this.categoryService.save(this.category).subscribe(
       () => {
+        this.alertService.success("Category saved");
         this.findAll();
       },
-      err => console.log(err)
+      err => this.alertService.danger("Error on execute operation")
     );
   }
 
   update() {
     this.categoryService.update(this.category).subscribe(
       () => {
+        this.alertService.success("Category updated");
         this.findAll(), this.reset();
       },
-      err => console.log(err)
+      err => this.alertService.danger("Error on execute operation")
     );
   }
 
