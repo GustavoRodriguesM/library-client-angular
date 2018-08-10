@@ -5,7 +5,8 @@ import { Alert, AlertType } from "./alert";
 import swal from "sweetalert";
 
 @Component({
-  selector: "lib-alert"
+  selector: "lib-alert",
+  template: '<span></span>'
 })
 export class AlertComponent {
   constructor(private alertService: AlertService) {
