@@ -9,24 +9,24 @@ import { Alert, AlertType } from "./alert";
 export class AlertService {
   alertSubject: Subject<Alert> = new Subject<Alert>();
 
-  success(message: string) {
-    this.alert(AlertType.SUCCESS, message);
+  success(title: string, message: string) {
+    this.alert(AlertType.SUCCESS, title, message);
   }
 
-  warning(message: string) {
-    this.alert(AlertType.WARNING, message);
+  warning(title: string, message: string) {
+    this.alert(AlertType.WARNING, title, message);
   }
 
-  danger(message: string) {
-    this.alert(AlertType.DANGER, message);
+  danger(title: string, message: string) {
+    this.alert(AlertType.DANGER, title, message);
   }
 
-  info(message: string) {
-    this.alert(AlertType.INFO, message);
+  info(title: string, message: string) {
+    this.alert(AlertType.INFO, title, message);
   }
 
-  private alert(alertType: AlertType, message: string) {
-    this.alertSubject.next(new Alert(alertType, message));
+  private alert(alertType: AlertType, title: string, message: string) {
+    this.alertSubject.next(new Alert(alertType, title, message));
   }
 
   getAlert() {
